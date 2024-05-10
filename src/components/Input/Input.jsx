@@ -18,7 +18,7 @@ const Input = ({
   return (
     <div className={cn(style.formControl, containerClassName)}>
       {label && (
-        <label className={style.label} htmlFor={id}>
+        <label className={style.label} htmlFor={id} data-testid="input-label">
           {label}
         </label>
       )}
