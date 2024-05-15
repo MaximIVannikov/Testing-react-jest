@@ -4,7 +4,7 @@ import {
   fireEvent,
   act,
   //   logRoles,
-  // within
+  //   within
 } from '@testing-library/react';
 
 import App from './App';
@@ -17,6 +17,9 @@ describe('App', () => {
   // screen.logTestingPlaygroundURL);
 
   //   logRoles(baseElement);
+
+  //   const form = screen.getByRole('form');
+  //   const userNameInput = within(form).getByLabelText(/User name/)
   it('should render App with form elements and a title', () => {
     const { container } = render(<App />);
 
