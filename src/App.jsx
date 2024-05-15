@@ -1,35 +1,38 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 
 import './App.css';
 import { Form } from './components/Form/Form';
 import { Input } from './components/Input';
 import { Title } from './components/Title/Title';
-import { validatePassword } from './helpers/validatePassword';
-import { wait } from './helpers/wait';
+// import { validatePassword } from './helpers/validatePassword';
+// import { wait } from './helpers/wait';
 import { Text } from './components/Text';
+import { useCreateUser } from './hooks/use-create-user';
 
 function App() {
-  const [successMessage, setSuccessMessage] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const { successMessage, errorMessage, onSubmit, onSuccess, onError } =
+    useCreateUser();
+  //   const [successMessage, setSuccessMessage] = useState('');
+  //   const [errorMessage, setErrorMessage] = useState('');
 
-  const onSubmit = async ({ password }) => {
-    const { success, error } = validatePassword(password);
+  //   const onSubmit = async ({ password }) => {
+  //     const { success, error } = validatePassword(password);
 
-    if (!success) {
-      throw new Error(error);
-    }
+  //     if (!success) {
+  //       throw new Error(error);
+  //     }
 
-    await wait(1000);
-  };
+  //     await wait(1000);
+  //   };
 
-  const onSuccess = ({ name, password }) => {
-    setErrorMessage('');
-    setSuccessMessage(`User ${name} created with password ${password}`);
-  };
+  //   const onSuccess = ({ name, password }) => {
+  //     setErrorMessage('');
+  //     setSuccessMessage(`User ${name} created with password ${password}`);
+  //   };
 
-  const onError = (error) => {
-    setErrorMessage(error.message);
-  };
+  //   const onError = (error) => {
+  //     setErrorMessage(error.message);
+  //   };
 
   return (
     <>
