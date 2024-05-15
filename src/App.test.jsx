@@ -1,4 +1,10 @@
-import { render, screen, fireEvent, act } from '@testing-library/react';
+import {
+  render,
+  screen,
+  fireEvent,
+  act,
+  //   logRoles,
+} from '@testing-library/react';
 
 import App from './App';
 import * as waitMock from './helpers/wait';
@@ -6,6 +12,9 @@ import * as waitMock from './helpers/wait';
 const waitSpy = jest.spyOn(waitMock, 'wait');
 
 describe('App', () => {
+  //   const { baseElement } = render(<App />);
+  // screen.logTestingPlaygroundURL);
+  //   logRoles(baseElement);
   it('should render App with form elements and a title', () => {
     const { container } = render(<App />);
 
