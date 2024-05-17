@@ -1,0 +1,10 @@
+.toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+.dark {
+  background-color: #424242;
+  color: #fff;
+}

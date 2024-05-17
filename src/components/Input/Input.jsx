@@ -16,7 +16,7 @@ const Input = ({
   const id = useId();
 
   return (
-    <div role="group" className={cn(style.formControl, containerClassName)}>
+    <div className={cn(style.formControl, containerClassName)} role="group">
       {label && (
         <label className={style.label} htmlFor={id} data-testid="input-label">
           {label}

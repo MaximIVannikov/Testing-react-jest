@@ -8,6 +8,7 @@ import { Title } from './components/Title/Title';
 // import { wait } from './helpers/wait';
 import { Text } from './components/Text';
 import { useCreateUser } from './hooks/use-create-user';
+import { ToggleTheme } from './components/ToggleTheme/ToggleTheme';
 
 function App() {
   const { successMessage, errorMessage, onSubmit, onSuccess, onError } =
@@ -36,6 +37,7 @@ function App() {
 
   return (
     <main data-testid="app">
+      <ToggleTheme />
       <Title>Create user</Title>
       <Form onSubmit={onSubmit} onSuccess={onSuccess} onError={onError}>
         <Input label="User name" name="name" />

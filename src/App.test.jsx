@@ -1,5 +1,5 @@
 import {
-  render,
+  //   render,
   screen,
   fireEvent,
   act,
@@ -9,6 +9,7 @@ import {
 
 import App from './App';
 import * as waitMock from './helpers/wait';
+import { renderWithProviders } from './utils/renderWithProviders';
 
 const waitSpy = jest.spyOn(waitMock, 'wait');
 
@@ -21,7 +22,7 @@ describe('App', () => {
   //   const form = screen.getByRole('form');
   //   const userNameInput = within(form).getByLabelText(/User name/)
   it('should render App with form elements and a title', () => {
-    const { container } = render(<App />);
+    const { container } = renderWithProviders(<App />);
 
     expect(screen.getByTestId('app')).toBeInTheDocument();
 
@@ -36,7 +37,7 @@ describe('App', () => {
     expect(title).toBeInTheDocument();
   });
   it('should render error message when form was submit with a weak password', async () => {
-    render(<App />);
+    renderWithProviders(<App />);
     const userNameInput = screen.getByLabelText(/User name/);
     const passwordInput = screen.getByLabelText(/Password/);
     const submitButton = screen.getByRole('button', { name: /Create user/ });
@@ -61,7 +62,7 @@ describe('App', () => {
     expect(errorMessageAfterSubmit).toBeInTheDocument();
   });
   it('should render success message after succesful submit', async () => {
-    render(<App />);
+    renderWithProviders(<App />);
     const userNameInput = screen.getByLabelText(/User name/);
     const passwordInput = screen.getByLabelText(/Password/);
     const submitButton = screen.getByRole('button', { name: /Create user/ });
