@@ -2,7 +2,7 @@ import {
   //   render,
   screen,
   fireEvent,
-  act,
+
   //   logRoles,
   //   within
 } from '@testing-library/react';
@@ -50,11 +50,9 @@ describe('App', () => {
     expect(successMessage).not.toBeInTheDocument();
     expect(errorMessage).not.toBeInTheDocument();
 
-    act(() => {
-      fireEvent.change(userNameInput, { target: { value: 'John' } });
-      fireEvent.change(passwordInput, { target: { value: '123' } });
-      fireEvent.click(submitButton);
-    });
+    fireEvent.change(userNameInput, { target: { value: 'John' } });
+    fireEvent.change(passwordInput, { target: { value: '123' } });
+    fireEvent.click(submitButton);
 
     const errorMessageAfterSubmit = await screen.findByText(
       /Password must be at least 8 characters long/,
@@ -79,11 +77,9 @@ describe('App', () => {
 
     waitSpy.mockImplementationOnce(() => promise);
 
-    act(() => {
-      fireEvent.change(userNameInput, { target: { value: 'John' } });
-      fireEvent.change(passwordInput, { target: { value: 'Qwer3212@1@' } });
-      fireEvent.click(submitButton);
-    });
+    fireEvent.change(userNameInput, { target: { value: 'John' } });
+    fireEvent.change(passwordInput, { target: { value: 'Qwer3212@1@' } });
+    fireEvent.click(submitButton);
 
     const successMessageAfterSubmit = await screen.findByText(
       /created with password/,
